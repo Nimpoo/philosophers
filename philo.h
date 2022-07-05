@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:53:17 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/02 23:21:35 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/07/05 21:22:39 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,38 @@
 
 /*----------STRUCT----------*/
 
-typedef struct s_tabula_rasa{
-	int			philo;
-	t_status	status;
-}t_tabula_rasa;
+typedef struct s_id{
+	int				id;
+	int				last_eat;
+	int				nb_of_eat;
+	int				l_fork;
+	int				r_fork;
+	int				position;
+	pthread_mutex_t	fork;
+}t_id;
 
-typedef struct s_status{
-	int	time_to_fork;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	time_to_think;
-	int	time_to_die;
-}t_status;
+typedef struct s_data{
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				time_to_die;
+	int				nb_of_eat;
+	int				nb_philo;
+}t_data;
+
+typedef struct s_tabula_rasa{
+	pthread_t		*ph;
+	t_data			data;
+	t_id			*philo;
+}t_tabula_rasa;
 
 /*-----------MAIN----------*/
 
 int		main(int argc, char **argv);
+
+/*----------INITS----------*/
+
+int		init_data(int argc, char **argv, t_tabula_rasa *philo);
+int		philo_generator(int argc, t_tabula_rasa *philo);
 
 /*----------UTILS----------*/
 
