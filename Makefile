@@ -6,18 +6,18 @@
 #    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 13:58:33 by mayoub            #+#    #+#              #
-#    Updated: 2022/07/02 21:03:57 by mayoub           ###   ########.fr        #
+#    Updated: 2022/07/08 10:16:07 by mayoub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	philo
 
 FILE		=	main			\
-				parsing/parsing	\
+				routine/routine	\
 				utils/ft_atoi	\
+				utils/ft_usleep	\
+				parsing/parsing	\
 				error/error		\
-
-
 
 
 
@@ -38,7 +38,7 @@ OBJ			=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILE)))
 
 CC			=	gcc
 
-CFLAGS		=	-Werror -Wall -Wextra -g -pthread#-fsanitize=address
+CFLAGS		=	-Werror -Wall -Wextra -g -pthread #-fsanitize=address
 
 #LIBRARIES	=	-lft -L$(LIBFT_DIR)
 

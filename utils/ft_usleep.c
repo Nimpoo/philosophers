@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_usleep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 20:46:38 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/07 13:54:48 by mayoub           ###   ########.fr       */
+/*   Created: 2022/07/07 13:55:27 by mayoub            #+#    #+#             */
+/*   Updated: 2022/07/07 13:57:00 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	ft_atoi(const char *str)
+long int	actual_time(void)
 {
-	int		i;
-	long	j;
-	long	n;
+	long int		time;
+	struct timeval	tm;
 
-	i = 0;
-	j = 1;
-	n = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
-			i++;
-	while (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-				j = j * -1;
-		i++;
-		if (str[i] == '+' || str[i] == '-')
-			return (0);
-	}
-	while (str[i] >= '0' && str [i] <= '9')
-	{
-			n = n * 10 + (str[i] - '0');
-			i++;
-	}
-	return (n * j);
+	gettimeofday(&tm, NULL);
+	time = (tm.tv_sec * 1000) + (tm.tv_usec / 1000);
+	return (time);
+}
+
+void	ft_usleep(long int ms)
+{
+	long int	time;
+
+	time = actual_time();
+	while ((actual_time() - time) < ms)
+		usleep(ms);
+	usleep(1);
 }
