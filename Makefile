@@ -6,7 +6,7 @@
 #    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 13:58:33 by mayoub            #+#    #+#              #
-#    Updated: 2022/07/10 20:06:06 by mayoub           ###   ########.fr        #
+#    Updated: 2022/07/10 22:11:04 by mayoub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ OBJ			=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILE)))
 
 CC			=	gcc
 
-CFLAGS		=	-Werror -Wall -Wextra -g -pthread #-fsanitize=address
+CFLAGS		=	-Werror -Wall -Wextra -g -pthread #-fsanitize=thread
 
 #LIBRARIES	=	-lft -L$(LIBFT_DIR)
 

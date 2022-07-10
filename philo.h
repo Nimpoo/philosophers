@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:53:17 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/10 20:27:37 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/07/10 22:05:50 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 /*----------STRUCT----------*/
 
 typedef struct s_data{
-	int				time_to_start;
+	long int		time_to_start;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				time_to_die;

@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:41:47 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/10 20:43:19 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/07/10 22:31:01 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	*routine(void *arg)
 
 	philo = (t_id *) arg;
 	old = actual_time();
-	if (philo->id % 2)
-		ft_usleep(10);
+	if (philo->id % 2 == 0)
+		ft_usleep(100);
 	while (1)
 	{
 		pthread_mutex_lock(&philo->philoze->philo[philo->l_fork].fork);
 		pthread_mutex_lock(&philo->parse->print);
-		printf("%ld	%d has taken a fork\n", (actual_time() - old), philo->id);
+		printf("%ld	%d has taken a fork\n", actual_time() - philo->parse->time_to_start, philo->id);
 		pthread_mutex_unlock(&philo->parse->print);
 		pthread_mutex_lock(&philo->philoze->philo[philo->r_fork].fork);
 		pthread_mutex_lock(&philo->parse->print);
-		printf("%ld	%d has taken a fork\n", (actual_time() - old), philo->id);
+		printf("%ld	%d has taken a fork\n", actual_time() - philo->parse->time_to_start, philo->id);
 		pthread_mutex_unlock(&philo->parse->print);
 		philo_spaghetting(philo, philo->parse->time_to_eat);
 	}
