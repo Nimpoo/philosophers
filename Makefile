@@ -6,20 +6,20 @@
 #    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 13:58:33 by mayoub            #+#    #+#              #
-#    Updated: 2022/07/08 10:16:07 by mayoub           ###   ########.fr        #
+#    Updated: 2022/07/10 20:06:06 by mayoub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	philo
 
-FILE		=	main			\
-				routine/routine	\
-				utils/ft_atoi	\
-				utils/ft_usleep	\
-				parsing/parsing	\
-				error/error		\
-
-
+FILE		=	main				\
+				routine/routine		\
+				routine/spaghettis	\
+				routine/rompiche		\
+				utils/ft_atoi		\
+				utils/ft_usleep		\
+				parsing/parsing		\
+				parsing/error		\
 
 
 

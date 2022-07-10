@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:53:17 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/08 19:59:22 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/07/10 20:27:37 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,18 @@
 # include <time.h>
 # include <sys/time.h>
 
-# define ICEBERG 0
+# define FORK		1
+# define EAT		2
+# define SLEEP		3
+# define THINK		4
+# define DIE		5
+
+# define ICEBERG	0
 
 /*----------STRUCT----------*/
 
 typedef struct s_data{
+	int				time_to_start;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				time_to_die;
@@ -33,6 +40,15 @@ typedef struct s_data{
 	int				nb_philo;
 	pthread_mutex_t	print;
 }t_data;
+
+struct	s_id;
+
+typedef struct s_tabula_rasa{
+	t_data			data;
+	struct s_id		*philo;
+	pthread_mutex_t	exit;
+	struct timeval	tm;
+}t_tabula_rasa;
 
 typedef struct s_id{
 	pthread_t		ph;
@@ -45,24 +61,23 @@ typedef struct s_id{
 	pthread_mutex_t	fork;
 	int				nb_filo;
 	t_data			*parse;
+	t_tabula_rasa	*philoze;
 }t_id;
-
-typedef struct s_tabula_rasa{
-	t_data			data;
-	t_id			*philo;
-	pthread_mutex_t	exit;
-	struct timeval	tm;
-}t_tabula_rasa;
 
 /*-----------MAIN----------*/
 
 int			main(int argc, char **argv);
-void		*routine(void *arg);
 
 /*----------INITS----------*/
 
 int			init_data(int argc, char **argv, t_tabula_rasa *philo);
 int			philo_generator(t_tabula_rasa *philo);
+
+/*----------ACTION----------*/
+
+void		*routine(void *arg);
+void		philo_spaghetting(t_id *philo, int time_to_eat);
+void		philo_rompiche(t_id *philo, int time_to_sleep);
 
 /*----------UTILS----------*/
 

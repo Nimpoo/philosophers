@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:35:30 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/08 15:20:09 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/07/10 20:27:52 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ int	init_philo(t_tabula_rasa *philo)
 		philo->philo[i].position = i;
 		philo->philo[i].nb_filo = i + 1;
 		pthread_mutex_init(&philo->philo[i].fork, NULL);
-		pthread_mutex_init(&philo->data.print, NULL);
-		pthread_mutex_init(&philo->exit, NULL);
+		philo->philo[i].philoze = philo;
 		i++;
 	}
+	pthread_mutex_init(&philo->data.print, NULL);
+	pthread_mutex_init(&philo->exit, NULL);
 	return (0);
 }
 
