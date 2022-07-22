@@ -6,18 +6,11 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:35:30 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/22 19:01:13 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/07/22 19:21:00 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-// int	init_mutex(t_tabula_rasa *philo)
-// {
-// 	int	i;
-
-// 	i = 0;
-// }
 
 int	init_philo(t_tabula_rasa *philo)
 {
@@ -38,7 +31,6 @@ int	init_philo(t_tabula_rasa *philo)
 		philo->philo[i].nb_filo = i + 1;
 		pthread_mutex_init(&philo->philo[i].fork, NULL);
 		philo->philo[i].philoze = philo;
-		//philo->philo[i].secure = 0;
 		i++;
 	}
 	pthread_mutex_init(&philo->data.print, NULL);
