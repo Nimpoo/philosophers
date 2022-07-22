@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:53:17 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/10 22:05:50 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/07/22 18:02:33 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_data{
 struct	s_id;
 
 typedef struct s_tabula_rasa{
+	int				finish;
 	t_data			data;
 	struct s_id		*philo;
 	pthread_mutex_t	exit;

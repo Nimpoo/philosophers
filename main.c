@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:35:30 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/10 20:27:52 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/07/22 19:01:13 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	init_philo(t_tabula_rasa *philo)
 		philo->philo[i].nb_filo = i + 1;
 		pthread_mutex_init(&philo->philo[i].fork, NULL);
 		philo->philo[i].philoze = philo;
+		//philo->philo[i].secure = 0;
 		i++;
 	}
 	pthread_mutex_init(&philo->data.print, NULL);
@@ -64,6 +65,7 @@ int	init_data(int argc, char **argv, t_tabula_rasa *philo)
 		philo->data.nb_must_eat = ft_atoi(argv[5]);
 	else
 		philo->data.nb_must_eat = -1;
+	philo->finish = 0;
 	if (init_philo(philo) == 1)
 		return (1);
 	return (0);
@@ -83,5 +85,9 @@ int	main(int argc, char **argv)
 		error();
 	pthread_mutex_lock(&philo.exit);
 	pthread_mutex_lock(&philo.exit);
+	pthread_mutex_destroy(&philo.data.print);
+	pthread_mutex_destroy(&philo.philo->fork);
+	pthread_mutex_unlock(&philo.exit);
+	pthread_mutex_destroy(&philo.exit);
 	return (ICEBERG);
 }

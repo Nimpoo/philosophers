@@ -6,7 +6,7 @@
 #    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 13:58:33 by mayoub            #+#    #+#              #
-#    Updated: 2022/07/10 22:11:04 by mayoub           ###   ########.fr        #
+#    Updated: 2022/07/21 17:48:38 by mayoub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		=	philo
 FILE		=	main				\
 				routine/routine		\
 				routine/spaghettis	\
-				routine/rompiche		\
+				routine/rompiche	\
 				utils/ft_atoi		\
 				utils/ft_usleep		\
 				parsing/parsing		\
