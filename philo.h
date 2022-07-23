@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:53:17 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/22 18:02:33 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/07/23 16:50:20 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ typedef struct s_data{
 struct	s_id;
 
 typedef struct s_tabula_rasa{
-	int				finish;
+	int				yum;
 	t_data			data;
 	struct s_id		*philo;
+	pthread_t		finish;
+	pthread_t		tombstone;
 	pthread_mutex_t	exit;
 	struct timeval	tm;
 }t_tabula_rasa;
@@ -77,8 +79,11 @@ int			philo_generator(t_tabula_rasa *philo);
 /*----------ACTION----------*/
 
 void		*routine(void *arg);
+void		*tombstone(void *arg);
 void		philo_spaghetting(t_id *philo, int time_to_eat);
 void		philo_rompiche(t_id *philo, int time_to_sleep);
+void		philo_thinking_forever(t_id *philo);
+void		philo_rompiche_forever(t_id *philo);
 
 /*----------UTILS----------*/
 
