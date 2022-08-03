@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 16:34:49 by mayoub            #+#    #+#             */
-/*   Updated: 2022/08/02 16:08:27 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:58:31 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ void	*tombstone(void *arg)
 	while (1)
 	{
 		last_eat = philo->parse->time_to_die + start;
-		if (die <= philo->parse->time_to_eat || ((actual_time() - start) - last_eat) >= die)
+	
+		//*-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	verifier ca en dessous
+		if (die <= philo->parse->time_to_eat || ((actual_time() - start) - last_eat - philo->parse->time_to_sleep) >= die)
 		{
 			ft_usleep(die);
 			pthread_mutex_lock(&philo->parse->print);
@@ -34,7 +36,9 @@ void	*tombstone(void *arg)
 			pthread_mutex_unlock(&philo->philoze->exit);
 			return (0);
 		}
-		if ((die <= philo->parse->time_to_sleep || ((actual_time() - start) - last_eat) >= die) && philo->philoze->dead > 0)
+
+		//*-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	verifier ca en dessous
+		if ((die <= philo->parse->time_to_sleep || ((actual_time() - start) - last_eat - philo->parse->time_to_eat) >= die) && philo->philoze->dead > 0)
 		{
 			ft_usleep(die);
 			pthread_mutex_lock(&philo->parse->print);
