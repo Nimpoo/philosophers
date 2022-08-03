@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:35:30 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/23 16:47:37 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/08/02 15:47:27 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ int	init_philo(t_tabula_rasa *philo)
 		philo->philo[i].l_fork = i;
 		philo->philo[i].r_fork = (i + 1) % philo->data.nb_philo;
 		philo->philo[i].position = i;
-		philo->philo[i].nb_filo = i + 1;
+		philo->philo[i].last_eat = philo->data.time_to_start;
+		philo->philo[i].think = 1;
 		pthread_mutex_init(&philo->philo[i].fork, NULL);
 		philo->philo[i].philoze = philo;
 		i++;
 	}
 	pthread_mutex_init(&philo->data.print, NULL);
+	pthread_mutex_init(&philo->data.alive, NULL);
 	pthread_mutex_init(&philo->exit, NULL);
 	return (0);
 }
@@ -58,6 +60,7 @@ int	init_data(int argc, char **argv, t_tabula_rasa *philo)
 	else
 		philo->data.nb_must_eat = -1;
 	philo->yum = 0;
+	philo->dead = -1;
 	if (init_philo(philo) == 1)
 		return (1);
 	return (0);
@@ -77,6 +80,7 @@ int	main(int argc, char **argv)
 		error();
 	pthread_mutex_lock(&philo.exit);
 	pthread_mutex_lock(&philo.exit);
+	pthread_mutex_unlock(&philo.exit);
 	pthread_mutex_destroy(&philo.data.print);
 	pthread_mutex_destroy(&philo.philo->fork);
 	pthread_mutex_destroy(&philo.exit);

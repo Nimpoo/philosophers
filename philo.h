@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:53:17 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/23 16:50:20 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/08/02 13:16:35 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,14 @@ typedef struct s_data{
 	int				nb_must_eat;
 	int				nb_philo;
 	pthread_mutex_t	print;
+	pthread_mutex_t	alive;
 }t_data;
 
 struct	s_id;
 
 typedef struct s_tabula_rasa{
 	int				yum;
+	int				dead;
 	t_data			data;
 	struct s_id		*philo;
 	pthread_t		finish;
@@ -61,8 +63,9 @@ typedef struct s_id{
 	int				l_fork;
 	int				r_fork;
 	int				position;
+	int				think;
 	pthread_mutex_t	fork;
-	int				nb_filo;
+	// int				nb_filo;
 	t_data			*parse;
 	t_tabula_rasa	*philoze;
 }t_id;
@@ -82,8 +85,10 @@ void		*routine(void *arg);
 void		*tombstone(void *arg);
 void		philo_spaghetting(t_id *philo, int time_to_eat);
 void		philo_rompiche(t_id *philo, int time_to_sleep);
-void		philo_thinking_forever(t_id *philo);
-void		philo_rompiche_forever(t_id *philo);
+int			philo_tombstone(t_id *philo, int time_to_die);
+int			is_dead(t_id *philo);
+// void		philo_thinking_forever(t_id *philo);
+// void		philo_rompiche_forever(t_id *philo);
 
 /*----------UTILS----------*/
 

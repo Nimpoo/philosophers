@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 20:53:47 by mayoub            #+#    #+#             */
-/*   Updated: 2022/07/08 13:33:55 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/08/02 15:38:45 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	parsing(int argc, char **argv)
 		i++;
 		j = 0;
 	}
-	if (ft_atoi(argv[1]) < 2 || ft_atoi(argv[1]) > 200)
+	if (ft_atoi(argv[1]) < 1 || ft_atoi(argv[1]) > 200)
 		return (1);
 	if (ft_atoi(argv[2]) < 60 || ft_atoi(argv[3]) < 60 || ft_atoi(argv[4]) < 60)
 		return (1);
