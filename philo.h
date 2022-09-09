@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:53:17 by mayoub            #+#    #+#             */
-/*   Updated: 2022/08/02 13:16:35 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/09/09 19:50:46 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct s_tabula_rasa{
 typedef struct s_id{
 	pthread_t		ph;
 	int				id;
-	int				last_eat;
+	long int		last_eat;
 	int				nb_of_eat;
 	int				l_fork;
 	int				r_fork;

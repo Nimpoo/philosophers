@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:41:47 by mayoub            #+#    #+#             */
-/*   Updated: 2022/08/03 14:37:04 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/09/09 20:56:50 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	dinner(t_id *philo)
 			return (0);
 		i++;
 	}
-	// else if (philo->philoze->yum == philo->philoze->data.nb_philo)
 	return (0);
 }
 
@@ -51,8 +50,9 @@ void	*routine(void *arg)
 
 	philo = (t_id *) arg;
 	start = philo->parse->time_to_start;
+	philo->last_eat = actual_time();
 	if (philo->id % 2 == 0)
-		ft_usleep(100);
+		usleep(100 * 1000);
 	while (1)
 	{
 		if (philo->nb_of_eat <= philo->philoze->data.nb_must_eat)
@@ -82,8 +82,11 @@ int	philo_generator(t_tabula_rasa *philo)
 		philo->philo[i].parse = &philo->data;
 		pthread_create(&philo->philo->ph, NULL, &routine, &philo->philo[i]);
 		pthread_detach(&philo->philo->ph[i]);
-		pthread_create(&philo->finish, NULL, &chef, &philo->philo[i]);
-		pthread_detach(&philo->finish[i]);
+		if (i == 0)
+		{
+			pthread_create(&philo->finish, NULL, &chef, &philo->philo[i]);
+			pthread_detach(&philo->finish[i]);
+		}
 		pthread_create(&philo->tombstone, NULL, &tombstone, &philo->philo[i]);
 		pthread_detach(&philo->tombstone[i]);
 	}

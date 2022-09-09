@@ -1,0 +1,80 @@
+0	1 has taken a fork
+0	1 has taken a fork
+0	1 is eating
+2	3 has taken a fork
+2	3 has taken a fork
+2	3 is eating
+203	3 is sleeping
+203	1 is sleeping
+203	2 has taken a fork
+203	2 has taken a fork
+203	2 is eating
+203	4 has taken a fork
+203	4 has taken a fork
+203	4 is eating
+403	3 is thinking
+405	4 is sleeping
+407	1 is thinking
+407	1 has taken a fork
+407	1 has taken a fork
+407	1 is eating
+407	3 has taken a fork
+407	3 has taken a fork
+407	3 is eating
+407	2 is sleeping
+607	2 is thinking
+607	4 is thinking
+607	3 is sleeping
+607	1 is sleeping
+607	2 has taken a fork
+607	2 has taken a fork
+607	2 is eating
+607	4 has taken a fork
+607	4 has taken a fork
+607	4 is eating
+808	1 is thinking
+808	4 is sleeping
+808	2 is sleeping
+808	3 is thinking
+808	3 has taken a fork
+808	3 has taken a fork
+808	3 is eating
+808	1 has taken a fork
+808	1 has taken a fork
+808	1 is eating
+1008	4 is thinking
+1008	3 is sleeping
+1008	4 has taken a fork
+1008	4 has taken a fork
+1008	4 is eating
+1008	1 is sleeping
+1008	2 is thinking
+1008	2 has taken a fork
+1008	2 has taken a fork
+1008	2 is eating
+1208	3 is thinking
+1208	1 is thinking
+1208	4 is sleeping
+1208	1 has taken a fork
+1209	2 is sleeping
+1209	1 has taken a fork
+1209	1 is eating
+1209	3 has taken a fork
+1209	3 has taken a fork
+1209	3 is eating
+1408	4 is thinking
+1409	2 is thinking
+1409	1 is sleeping
+1409	2 has taken a fork
+1414	3 is sleeping
+1414	4 has taken a fork
+1414	4 has taken a fork
+1414	4 is eating
+1414	2 has taken a fork
+1414	2 is eating
+1609	1 is thinking
+1615	4 is sleeping
+1615	1 has taken a fork
+last eat = 410, time to eat = 200, die = 410
+actual time = 1662747627485, last eat = 1662747627075
+1619	2 is dead.......... EAT
