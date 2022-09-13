@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:41:47 by mayoub            #+#    #+#             */
-/*   Updated: 2022/09/09 20:56:50 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/09/13 13:50:28 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	*routine(void *arg)
 	start = philo->parse->time_to_start;
 	philo->last_eat = actual_time();
 	if (philo->id % 2 == 0)
-		usleep(100 * 1000);
+		ft_usleep(100);
 	while (1)
 	{
 		if (philo->nb_of_eat <= philo->philoze->data.nb_must_eat)
@@ -65,7 +65,6 @@ void	*routine(void *arg)
 		pthread_mutex_lock(&philo->parse->print);
 		printf("%ld	%d has taken a fork\n", actual_time() - start, philo->id);
 		pthread_mutex_unlock(&philo->parse->print);
-		philo->think = 0;
 		philo_spaghetting(philo, philo->parse->time_to_eat);
 	}
 	return (arg);
