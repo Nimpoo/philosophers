@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:55:27 by mayoub            #+#    #+#             */
-/*   Updated: 2022/09/13 13:33:38 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/09/13 19:45:53 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ void	ft_usleep(long int ms)
 
 	time = actual_time();
 	while ((actual_time() - time) < ms)
-		usleep(ms);
-	usleep(1);
+		usleep(150);
 }
